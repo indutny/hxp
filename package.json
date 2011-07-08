@@ -1,0 +1,13 @@
+{
+  "name": "hxp",
+  "version": "0.1.0",
+  "description": "HXP Generates RegExps for matching specific html tags",
+
+  "author": "Fedor Indutny <fedor.indutny@gmail.com>",
+
+  "main": "./lib/hxp",
+
+  "scripts": {
+    "test": "vows --spec test/*-test.js"
+  }
+}
