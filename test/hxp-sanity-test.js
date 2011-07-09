@@ -154,6 +154,28 @@ vows.describe('Hxp').addBatch({
           assert.ok(result);
         }
       }
+    },
+    'a link tag with attribute and placeholder': {
+      topic: function() {
+        return hxp.create('link', {
+          rel: 'alternate',
+          type: 'application/rss+xml',
+          href: '%s'
+        });
+      },
+      'given a sample html content': {
+        topic: function(h) {
+          return h('<b>tag</b><link rel="alternate" ' +
+                   'type="application/rss+xml" href="v"' +
+                   '/>123</h1><c>tag</c>');
+        },
+        'should find tag inside it': function(result) {
+          assert.ok(result);
+        },
+        'should fine tag with content': function(result) {
+          assert.equal(result.attrs.href, 'v');
+        }
+      }
     }
   }
 }).export(module);
